@@ -1,6 +1,10 @@
 # -*- encoding: utf-8 -*-
 
-require "mrb-fsevent/support/tnetstring"
+begin
+  require 'tnetstring'
+rescue LoadError
+  require "mrb-fsevent/support/tnetstring"
+end
 
 module FSEvent
   module Formatters
