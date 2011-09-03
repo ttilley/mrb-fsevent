@@ -1,0 +1,25 @@
+#!/usr/bin/env macruby
+# -*- encoding: utf-8 -*-
+
+unless RUBY_ENGINE == "macruby"
+  STDERR.puts("This only works on macruby")
+  exit 1
+end
+
+require 'mrb-fsevent'
+require 'mrb-fsevent/cli'
+
+options = FSEvent::CLI.parse(ARGV)
+$DEBUG = options[:debug] if options[:debug]
+
+format = options[:format]
+
+notifier = FSEvent::Notifier.new
+
+options[:paths].each do |path|
+  notifier.watch(path, *options[:create_flags], options) do |event_list|
+    STDOUT.print(event_list.to_formatted_string(format))
+  end
+end
+
+notifier.run
