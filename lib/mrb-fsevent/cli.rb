@@ -64,7 +64,7 @@ module FSEvent
           options[:debug] = debug
         end
 
-        opts.on("--format format", [:classic, :niw],
+        opts.on("--format format", ::FSEvent::EventList::FORMATS.keys,
                 "select output format") do |format|
           options[:format] = format
         end

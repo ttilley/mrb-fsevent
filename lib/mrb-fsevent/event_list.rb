@@ -56,5 +56,25 @@ module FSEvent
       end
     end
     
+    def to_h
+      hash = {
+        'root' => self.root,
+        'create_mask' => self.create_mask,
+        'create_flags' => self.create_flags,
+        'events' => []
+      }
+      
+      self.events.each do |event|
+        hash['events'] << {
+          'path' => event.path,
+          'mask' => event.mask,
+          'flags' => event.flags,
+          'id' => event.id
+        }
+      end
+      
+      hash
+    end
+    
   end
 end
