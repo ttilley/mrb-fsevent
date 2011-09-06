@@ -70,11 +70,17 @@ module FSEvent
         end
       end
       
+      # paths = op.parse!(args)
+      # paths = ['.'] if paths.empty?
+      # paths.map! { |path| File.expand_path path }
+      # paths.map! { |path| path.sub(/^\/private/, '') }
+      # options[:paths] = paths
+      
       paths = op.parse!(args)
-      paths = ['.'] if paths.empty?
-      paths.map! { |path| File.expand_path path }
-      paths.map! { |path| path.sub(/^\/private/, '') }
-      options[:paths] = paths
+      paths << '.' if paths.empty?
+      options[:urls] = paths.map do |path|
+        NSURL.fileURLWithPath(path.stringByStandardizingPath)
+      end
       
       create_flags = [:useCoreFoundationTypes]
       create_flags << :noDefer if options[:no_defer]

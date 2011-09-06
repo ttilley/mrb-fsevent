@@ -23,7 +23,8 @@ module FSEvent
       events = EventList.new(watcher)
       
       num_events.times do |num|
-        event = events.add(paths[num], masks[num], ids[num])
+        path = paths[num].stringByStandardizingPath
+        event = events.add(path, masks[num], ids[num])
         STDERR.puts("#{event.inspect}") if $DEBUG
       end
       
