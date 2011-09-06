@@ -6,6 +6,8 @@ unless RUBY_ENGINE == "macruby"
   exit 1
 end
 
+Process.setpgid(0,0)
+
 require 'mrb-fsevent'
 require 'mrb-fsevent/cli'
 
