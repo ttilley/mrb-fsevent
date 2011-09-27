@@ -7,19 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6A5EABD7143195C60070C995 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABD6143195C60070C995 /* Cocoa.framework */; };
-		6A5EABE1143195C60070C995 /* TSITString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5EABE0143195C60070C995 /* TSITString.m */; };
+		6A5EABE9143198F70070C995 /* TSICTString.c in Sources */ = {isa = PBXBuildFile; fileRef = 6A5EABE8143198F70070C995 /* TSICTString.c */; };
+		6A5EABEB1431995F0070C995 /* TSICTString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A5EABEA1431995F0070C995 /* TSICTString.h */; };
+		6A5EABED14322A300070C995 /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABEC14322A300070C995 /* CoreFoundation.framework */; };
+		6A5EABF514322D800070C995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABF414322D800070C995 /* Foundation.framework */; };
+		6A5EABF814322D800070C995 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5EABF714322D800070C995 /* main.m */; };
+		6A5EAC0014322D9A0070C995 /* TSITString.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABD3143195C60070C995 /* TSITString.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		6A5EABD3143195C60070C995 /* TSITString.dylib */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = TSITString.dylib; sourceTree = BUILT_PRODUCTS_DIR; };
-		6A5EABD6143195C60070C995 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		6A5EABD9143195C60070C995 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
-		6A5EABDA143195C60070C995 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		6A5EABD3143195C60070C995 /* TSITString.bundle */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.dylib"; includeInIndex = 0; path = TSITString.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A5EABDB143195C60070C995 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		6A5EABDE143195C60070C995 /* TSITString-Prefix.pch */ = {isa = PBXFileReference; path = "TSITString-Prefix.pch"; sourceTree = "<group>"; };
-		6A5EABDF143195C60070C995 /* TSITString.h */ = {isa = PBXFileReference; path = TSITString.h; sourceTree = "<group>"; };
-		6A5EABE0143195C60070C995 /* TSITString.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSITString.m; sourceTree = "<group>"; };
+		6A5EABDE143195C60070C995 /* TSITString-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSITString-Prefix.pch"; sourceTree = "<group>"; };
+		6A5EABE8143198F70070C995 /* TSICTString.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = TSICTString.c; sourceTree = "<group>"; };
+		6A5EABEA1431995F0070C995 /* TSICTString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSICTString.h; sourceTree = "<group>"; };
+		6A5EABEC14322A300070C995 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6A5EABF214322D800070C995 /* TSITStringTestApp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TSITStringTestApp; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A5EABF414322D800070C995 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6A5EABF714322D800070C995 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		6A5EABFA14322D800070C995 /* TSITStringTestApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSITStringTestApp-Prefix.pch"; sourceTree = "<group>"; };
+		6A5EAC01143265D70070C995 /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,7 +34,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A5EABD7143195C60070C995 /* Cocoa.framework in Frameworks */,
+				6A5EABED14322A300070C995 /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A5EABEF14322D800070C995 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A5EAC0014322D9A0070C995 /* TSITString.bundle in Frameworks */,
+				6A5EABF514322D800070C995 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				6A5EABDC143195C60070C995 /* TSITString */,
+				6A5EABF614322D800070C995 /* TSITStringTestApp */,
 				6A5EABD5143195C60070C995 /* Frameworks */,
 				6A5EABD4143195C60070C995 /* Products */,
 			);
@@ -46,7 +63,8 @@
 		6A5EABD4143195C60070C995 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				6A5EABD3143195C60070C995 /* TSITString.dylib */,
+				6A5EABD3143195C60070C995 /* TSITString.bundle */,
+				6A5EABF214322D800070C995 /* TSITStringTestApp */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,7 +72,8 @@
 		6A5EABD5143195C60070C995 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A5EABD6143195C60070C995 /* Cocoa.framework */,
+				6A5EABEC14322A300070C995 /* CoreFoundation.framework */,
+				6A5EABF414322D800070C995 /* Foundation.framework */,
 				6A5EABD8143195C60070C995 /* Other Frameworks */,
 			);
 			name = Frameworks;
@@ -63,8 +82,6 @@
 		6A5EABD8143195C60070C995 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6A5EABD9143195C60070C995 /* AppKit.framework */,
-				6A5EABDA143195C60070C995 /* CoreData.framework */,
 				6A5EABDB143195C60070C995 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
@@ -73,9 +90,9 @@
 		6A5EABDC143195C60070C995 /* TSITString */ = {
 			isa = PBXGroup;
 			children = (
-				6A5EABDF143195C60070C995 /* TSITString.h */,
-				6A5EABE0143195C60070C995 /* TSITString.m */,
+				6A5EABEA1431995F0070C995 /* TSICTString.h */,
 				6A5EABDD143195C60070C995 /* Supporting Files */,
+				6A5EABE8143198F70070C995 /* TSICTString.c */,
 			);
 			path = TSITString;
 			sourceTree = "<group>";
@@ -88,6 +105,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6A5EABF614322D800070C995 /* TSITStringTestApp */ = {
+			isa = PBXGroup;
+			children = (
+				6A5EABF714322D800070C995 /* main.m */,
+				6A5EABF914322D800070C995 /* Supporting Files */,
+				6A5EAC01143265D70070C995 /* test.plist */,
+			);
+			path = TSITStringTestApp;
+			sourceTree = "<group>";
+		};
+		6A5EABF914322D800070C995 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6A5EABFA14322D800070C995 /* TSITStringTestApp-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -95,6 +130,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6A5EABEB1431995F0070C995 /* TSICTString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,8 +151,24 @@
 			);
 			name = TSITString;
 			productName = TSITString;
-			productReference = 6A5EABD3143195C60070C995 /* TSITString.dylib */;
+			productReference = 6A5EABD3143195C60070C995 /* TSITString.bundle */;
 			productType = "com.apple.product-type.library.dynamic";
+		};
+		6A5EABF114322D800070C995 /* TSITStringTestApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6A5EABFD14322D800070C995 /* Build configuration list for PBXNativeTarget "TSITStringTestApp" */;
+			buildPhases = (
+				6A5EABEE14322D800070C995 /* Sources */,
+				6A5EABEF14322D800070C995 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TSITStringTestApp;
+			productName = TSITStringTestApp;
+			productReference = 6A5EABF214322D800070C995 /* TSITStringTestApp */;
+			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
@@ -139,6 +191,7 @@
 			projectRoot = "";
 			targets = (
 				6A5EABD2143195C60070C995 /* TSITString */,
+				6A5EABF114322D800070C995 /* TSITStringTestApp */,
 			);
 		};
 /* End PBXProject section */
@@ -148,7 +201,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6A5EABE1143195C60070C995 /* TSITString.m in Sources */,
+				6A5EABE9143198F70070C995 /* TSICTString.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6A5EABEE14322D800070C995 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6A5EABF814322D800070C995 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,25 +220,36 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_FAST_OBJC_DISPATCH = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_REUSE_STRINGS = YES;
+				GCC_STRICT_ALIASING = YES;
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_NO_PIE = NO;
+				"LLVM_LTO[arch=x86_64]" = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Debug;
 		};
@@ -185,18 +257,29 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_ENABLE_OBJC_GC = unsupported;
+				GCC_ENABLE_SSE3_EXTENSIONS = YES;
+				GCC_ENABLE_SUPPLEMENTAL_SSE3_INSTRUCTIONS = YES;
+				GCC_FAST_OBJC_DISPATCH = YES;
+				GCC_REUSE_STRINGS = YES;
+				GCC_STRICT_ALIASING = YES;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				LD_NO_PIE = NO;
+				"LLVM_LTO[arch=x86_64]" = YES;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
+				WARNING_CFLAGS = "-Wall";
 			};
 			name = Release;
 		};
@@ -205,6 +288,7 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = bundle;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSITString/TSITString-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -216,8 +300,30 @@
 			buildSettings = {
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
+				EXECUTABLE_EXTENSION = bundle;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "TSITString/TSITString-Prefix.pch";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		6A5EABFE14322D800070C995 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSITStringTestApp/TSITStringTestApp-Prefix.pch";
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		6A5EABFF14322D800070C995 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "TSITStringTestApp/TSITStringTestApp-Prefix.pch";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -239,6 +345,14 @@
 			buildConfigurations = (
 				6A5EABE5143195C60070C995 /* Debug */,
 				6A5EABE6143195C60070C995 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		6A5EABFD14322D800070C995 /* Build configuration list for PBXNativeTarget "TSITStringTestApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6A5EABFE14322D800070C995 /* Debug */,
+				6A5EABFF14322D800070C995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};
