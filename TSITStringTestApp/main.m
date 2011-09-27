@@ -9,6 +9,7 @@
 #import <CoreFoundation/CoreFoundation.h>
 #import <Foundation/Foundation.h>
 #import "../TSITString/TSICTString.h"
+#import "../TSITString/TSITString.h"
 
 
 int main (int argc, const char * argv[])
@@ -20,10 +21,17 @@ int main (int argc, const char * argv[])
         
         id object = [NSArray arrayWithContentsOfFile:plistPath];
         
+//        for (int i=0; i < 1000; i++) {
+//            @autoreleasepool {
+//                CFDataRef data = TSICTStringCreateRenderedDataFromObjectWithFormat(object, kTSITStringFormatTNetstring);
+//                CFRelease(data);
+//            }
+//        }
+        
         for (int i=0; i < 1000; i++) {
             @autoreleasepool {
-                CFDataRef data = TSICTStringCreateRenderedDataFromObjectWithFormat(object, kTSITStringFormatTNetstring);
-                CFRelease(data);
+                NSData* data = [[TSITString dumpData:object] retain];
+                [data release];
             }
         }
     }

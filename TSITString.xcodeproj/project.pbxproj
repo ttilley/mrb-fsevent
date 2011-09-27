@@ -13,6 +13,9 @@
 		6A5EABF514322D800070C995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABF414322D800070C995 /* Foundation.framework */; };
 		6A5EABF814322D800070C995 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5EABF714322D800070C995 /* main.m */; };
 		6A5EAC0014322D9A0070C995 /* TSITString.bundle in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABD3143195C60070C995 /* TSITString.bundle */; };
+		6A5EAC0C143281740070C995 /* TSITString.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A5EAC0A143281740070C995 /* TSITString.h */; };
+		6A5EAC0D143281740070C995 /* TSITString.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A5EAC0B143281740070C995 /* TSITString.m */; };
+		6A5EAC0F143292B90070C995 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A5EABDB143195C60070C995 /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +30,8 @@
 		6A5EABF714322D800070C995 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6A5EABFA14322D800070C995 /* TSITStringTestApp-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TSITStringTestApp-Prefix.pch"; sourceTree = "<group>"; };
 		6A5EAC01143265D70070C995 /* test.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test.plist; sourceTree = "<group>"; };
+		6A5EAC0A143281740070C995 /* TSITString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TSITString.h; sourceTree = "<group>"; };
+		6A5EAC0B143281740070C995 /* TSITString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TSITString.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +40,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A5EABED14322A300070C995 /* CoreFoundation.framework in Frameworks */,
+				6A5EAC0F143292B90070C995 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +96,8 @@
 		6A5EABDC143195C60070C995 /* TSITString */ = {
 			isa = PBXGroup;
 			children = (
+				6A5EAC0A143281740070C995 /* TSITString.h */,
+				6A5EAC0B143281740070C995 /* TSITString.m */,
 				6A5EABEA1431995F0070C995 /* TSICTString.h */,
 				6A5EABDD143195C60070C995 /* Supporting Files */,
 				6A5EABE8143198F70070C995 /* TSICTString.c */,
@@ -131,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A5EABEB1431995F0070C995 /* TSICTString.h in Headers */,
+				6A5EAC0C143281740070C995 /* TSITString.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A5EABE9143198F70070C995 /* TSICTString.c in Sources */,
+				6A5EAC0D143281740070C995 /* TSITString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -222,7 +232,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -245,7 +255,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LD_NO_PIE = NO;
 				"LLVM_LTO[arch=x86_64]" = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
@@ -259,7 +269,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				COPY_PHASE_STRIP = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_ENABLE_OBJC_GC = unsupported;
@@ -275,7 +285,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				LD_NO_PIE = NO;
 				"LLVM_LTO[arch=x86_64]" = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.5;
 				ONLY_ACTIVE_ARCH = NO;
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				SDKROOT = macosx;
@@ -347,6 +357,7 @@
 				6A5EABE6143195C60070C995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6A5EABFD14322D800070C995 /* Build configuration list for PBXNativeTarget "TSITStringTestApp" */ = {
 			isa = XCConfigurationList;
@@ -355,6 +366,7 @@
 				6A5EABFF14322D800070C995 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
