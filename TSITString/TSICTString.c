@@ -39,7 +39,7 @@ __attribute__((constructor)) void Init_TSICTString(void)
 
 void TSICTStringSetDefaultFormat(TSITStringFormat format)
 {
-    if (format == kTSITStringFormatDefault){
+    if (format == kTSITStringFormatDefault) {
         TSITStringDefaultFormat = kTSITStringFormatTNetstring;
     } else {
         TSITStringDefaultFormat = format;
@@ -61,8 +61,8 @@ void TSICTStringDestroy(TStringIRep* rep)
 
 
 static inline TStringIRep* TSICTStringCreateWithDataOfTypeAndFormat(CFDataRef data, TSITStringTag type, TSITStringFormat format)
-{    
-    if (format == kTSITStringFormatDefault){
+{
+    if (format == kTSITStringFormatDefault) {
         format = TSICTStringGetDefaultFormat();
     }
     
@@ -73,12 +73,12 @@ static inline TStringIRep* TSICTStringCreateWithDataOfTypeAndFormat(CFDataRef da
     rep->length = calloc(10, sizeof(char));
     
     CFIndex len = CFDataGetLength(rep->data);
-    if (snprintf(rep->length, 10, "%lu", len)){
+    if (snprintf(rep->length, 10, "%lu", len)) {
         return rep;
     } else {
         TSICTStringDestroy(rep);
         return NULL;
-    }    
+    }
 }
 
 static inline CFDataRef TSICTStringCreateDataFromIntermediateRepresentation(TStringIRep* rep)
@@ -90,7 +90,7 @@ static inline CFDataRef TSICTStringCreateDataFromIntermediateRepresentation(TStr
     size_t prefixLength = strlen(rep->length) + 1;
     CFDataReplaceBytes(buffer, BeginningRange, (const UInt8*)rep->length, prefixLength);
     
-    if (rep->format == kTSITStringFormatTNetstring){
+    if (rep->format == kTSITStringFormatTNetstring) {
         const UInt8 ftag = TNetstringTypes[rep->type];
         CFDataAppendBytes(buffer, &ftag, 1);
         bufferBytes[(prefixLength - 1)] = TNetstringSeparator;
@@ -117,12 +117,14 @@ static inline CFDataRef TSICTStringCreateDataWithDataOfTypeAndFormat(CFDataRef d
 {
     CFRetain(data);
     
-    if (format == kTSITStringFormatDefault){
+    if (format == kTSITStringFormatDefault) {
         format = TSICTStringGetDefaultFormat();
     }
     
     TStringIRep* rep = TSICTStringCreateWithDataOfTypeAndFormat(data, type, format);
-    if (rep == NULL){return NULL;}
+    if (rep == NULL) {
+        return NULL;
+    }
     
     CFDataRef result = TSICTStringCreateDataFromIntermediateRepresentation(rep);
     
@@ -134,7 +136,9 @@ static inline CFDataRef TSICTStringCreateDataWithDataOfTypeAndFormat(CFDataRef d
 
 static inline void TSICTStringAppendObjectToMutableDataWithFormat(CFTypeRef object, CFMutableDataRef buffer, TSITStringFormat format)
 {
-    if (object == NULL){object = kCFNull;}
+    if (object == NULL) {
+        object = kCFNull;
+    }
     
     CFRetain(object);
     
@@ -174,7 +178,9 @@ CFDataRef TSICTStringCreateRenderedData(TStringIRep* rep)
 
 CFDataRef TSICTStringCreateRenderedDataFromObjectWithFormat(CFTypeRef object, TSITStringFormat format)
 {
-    if (object == NULL){object = kCFNull;}
+    if (object == NULL) {
+        object = kCFNull;
+    }
     
     CFRetain(object);
     
@@ -194,7 +200,9 @@ CFStringRef TSICTStringCreateRenderedString(TStringIRep* rep)
 
 CFStringRef TSICTStringCreateRenderedStringFromObjectWithFormat(CFTypeRef object, TSITStringFormat format)
 {
-    if (object == NULL){object = kCFNull;}
+    if (object == NULL) {
+        object = kCFNull;
+    }
     
     CFRetain(object);
     
@@ -210,29 +218,31 @@ CFStringRef TSICTStringCreateRenderedStringFromObjectWithFormat(CFTypeRef object
 
 TStringIRep* TSICTStringCreateWithObjectAndFormat(CFTypeRef object, TSITStringFormat format)
 {
-    if (object == NULL){return TSICTStringCreateNullWithFormat(format);}
+    if (object == NULL) {
+        return TSICTStringCreateNullWithFormat(format);
+    }
     CFRetain(object);
     
     CFTypeID cfType = CFGetTypeID(object);
     TStringIRep* rep = NULL;
     
-    if (cfType == kCFDataTypeID){
+    if (cfType == kCFDataTypeID) {
         rep = TSICTStringCreateWithDataOfTypeAndFormat(object, kTSITStringTagString, format);
-    } else if (cfType == kCFStringTypeID){
+    } else if (cfType == kCFStringTypeID) {
         rep = TSICTStringCreateWithStringAndFormat(object, format);
-    } else if (cfType == kCFNumberTypeID){
+    } else if (cfType == kCFNumberTypeID) {
         rep = TSICTStringCreateWithNumberAndFormat(object, format);
-    } else if (cfType == kCFBooleanTypeID){
-        if (CFBooleanGetValue(object)){
+    } else if (cfType == kCFBooleanTypeID) {
+        if (CFBooleanGetValue(object)) {
             rep = TSICTStringCreateTrueWithFormat(format);
         } else {
             rep = TSICTStringCreateFalseWithFormat(format);
         }
-    } else if (cfType == kCFNullTypeID){
+    } else if (cfType == kCFNullTypeID) {
         rep = TSICTStringCreateNullWithFormat(format);
-    } else if (cfType == kCFArrayTypeID){
+    } else if (cfType == kCFArrayTypeID) {
         rep = TSICTStringCreateWithArrayAndFormat(object, format);
-    } else if (cfType == kCFDictionaryTypeID){
+    } else if (cfType == kCFDictionaryTypeID) {
         rep = TSICTStringCreateWithDictionaryAndFormat(object, format);
     } else {
         rep = TSICTStringCreateInvalidWithFormat(format);
@@ -259,12 +269,11 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
     CFDataRef data;
     CFNumberType numType = CFNumberGetType(number);
     
-    switch(numType)
-    {
+    switch(numType) {
         case kCFNumberCharType:
         {
             int value;
-            if (CFNumberGetValue(number, kCFNumberIntType, &value)){
+            if (CFNumberGetValue(number, kCFNumberIntType, &value)) {
                 if (value == 0 || value == 1) {
                     tag = kTSITStringTagBool;
                 } else {
@@ -283,15 +292,15 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
         }
     }
     
-    if (tag == kTSITStringTagBool){
+    if (tag == kTSITStringTagBool) {
         bool value;
         CFNumberGetValue(number, kCFNumberIntType, &value);
-        if (value){
+        if (value) {
             data = CFDataCreate(kCFAllocatorDefault, (UInt8*)"true", 4);
         } else {
             data = CFDataCreate(kCFAllocatorDefault, (UInt8*)"false", 5);
         }
-    } else if (tag == kTSITStringTagFloat){
+    } else if (tag == kTSITStringTagFloat) {
         char buf[32];
         char *p, *e;
         double value;
@@ -301,7 +310,7 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
         
         e = buf + strlen(buf);
         p = e;
-        while (p[-1]=='0' && ('0' <= p[-2] && p[-2] <= '9')){
+        while (p[-1]=='0' && ('0' <= p[-2] && p[-2] <= '9')) {
             p--;
         }
         memmove(p, e, strlen(e)+1);
