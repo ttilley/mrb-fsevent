@@ -249,8 +249,9 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
     CFRetain(number);
     TSITStringTag tag = kTSITStringTagNumber;
     CFDataRef data;
-        
-    switch(CFNumberGetType(number))
+    CFNumberType numType = CFNumberGetType(number);
+    
+    switch(numType)
     {
         case kCFNumberCharType:
         {
@@ -285,9 +286,9 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
     } else if (tag == kTSITStringTagFloat){
         char buf[32];
         char *p, *e;
-        
         double value;
-        CFNumberGetValue(number, kCFNumberDoubleType, &value);
+        
+        CFNumberGetValue(number, numType, &value);
         sprintf(buf, "%#.15g", value);
         
         e = buf + strlen(buf);
@@ -299,9 +300,11 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
         
         data = CFDataCreate(kCFAllocatorDefault, (UInt8*)buf, strlen(buf));
     } else {
-        CFStringRef string = CFCopyDescription(number);
-        data = CFStringCreateExternalRepresentation(kCFAllocatorDefault, string, kCFStringEncodingUTF8, '?');
-        CFRelease(string);
+        char buf[32];
+        SInt64 value;
+        CFNumberGetValue(number, numType, &value);
+        sprintf(buf, "%lli", value);
+        data = CFDataCreate(kCFAllocatorDefault, (UInt8*)buf, strlen(buf));
     }
     
     TStringIRep* rep = TSICTStringCreateWithDataOfTypeAndFormat(data, tag, format);

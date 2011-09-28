@@ -21,6 +21,9 @@ int main (int argc, const char * argv[])
         
         id object = [NSArray arrayWithContentsOfFile:plistPath];
         
+        NSString* string = [TSITString dump:object];
+        NSLog(@"%@", string);
+        
 //        for (int i=0; i < 1000; i++) {
 //            @autoreleasepool {
 //                CFDataRef data = TSICTStringCreateRenderedDataFromObjectWithFormat(object, kTSITStringFormatTNetstring);
@@ -34,6 +37,7 @@ int main (int argc, const char * argv[])
                 [data release];
             }
         }
+        
     }
     
     return 0;
