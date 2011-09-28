@@ -134,6 +134,8 @@ static inline CFDataRef TSICTStringCreateDataWithDataOfTypeAndFormat(CFDataRef d
 
 static inline void TSICTStringAppendObjectToMutableDataWithFormat(CFTypeRef object, CFMutableDataRef buffer, TSITStringFormat format)
 {
+    if (object == NULL){object = kCFNull;}
+    
     CFRetain(object);
     
     TStringIRep* objRep = TSICTStringCreateWithObjectAndFormat(object, format);
@@ -172,6 +174,8 @@ CFDataRef TSICTStringCreateRenderedData(TStringIRep* rep)
 
 CFDataRef TSICTStringCreateRenderedDataFromObjectWithFormat(CFTypeRef object, TSITStringFormat format)
 {
+    if (object == NULL){object = kCFNull;}
+    
     CFRetain(object);
     
     TStringIRep* rep = TSICTStringCreateWithObjectAndFormat(object, format);
@@ -190,6 +194,8 @@ CFStringRef TSICTStringCreateRenderedString(TStringIRep* rep)
 
 CFStringRef TSICTStringCreateRenderedStringFromObjectWithFormat(CFTypeRef object, TSITStringFormat format)
 {
+    if (object == NULL){object = kCFNull;}
+    
     CFRetain(object);
     
     TStringIRep* rep = TSICTStringCreateWithObjectAndFormat(object, format);
@@ -228,6 +234,8 @@ TStringIRep* TSICTStringCreateWithObjectAndFormat(CFTypeRef object, TSITStringFo
         rep = TSICTStringCreateWithArrayAndFormat(object, format);
     } else if (cfType == kCFDictionaryTypeID){
         rep = TSICTStringCreateWithDictionaryAndFormat(object, format);
+    } else {
+        rep = TSICTStringCreateInvalidWithFormat(format);
     }
     
     CFRelease(object);
@@ -333,6 +341,14 @@ TStringIRep* TSICTStringCreateNullWithFormat(TSITStringFormat format)
 {
     CFDataRef data = CFDataCreate(kCFAllocatorDefault, NULL, 0);
     TStringIRep* rep = TSICTStringCreateWithDataOfTypeAndFormat(data, kTSITStringTagNull, format);
+    CFRelease(data);
+    return rep;
+}
+
+TStringIRep* TSICTStringCreateInvalidWithFormat(TSITStringFormat format)
+{
+    CFDataRef data = CFDataCreate(kCFAllocatorDefault, NULL, 0);
+    TStringIRep* rep = TSICTStringCreateWithDataOfTypeAndFormat(data, kTSITStringTagInvalid, format);
     CFRelease(data);
     return rep;
 }

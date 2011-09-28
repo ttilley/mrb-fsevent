@@ -66,6 +66,7 @@ TStringIRep* TSICTStringCreateWithNumberAndFormat(CFNumberRef number, TSITString
 TStringIRep* TSICTStringCreateTrueWithFormat(TSITStringFormat format);
 TStringIRep* TSICTStringCreateFalseWithFormat(TSITStringFormat format);
 TStringIRep* TSICTStringCreateNullWithFormat(TSITStringFormat format);
+TStringIRep* TSICTStringCreateInvalidWithFormat(TSITStringFormat format);
 TStringIRep* TSICTStringCreateWithArrayAndFormat(CFArrayRef array, TSITStringFormat format);
 TStringIRep* TSICTStringCreateWithDictionaryAndFormat(CFDictionaryRef dictionary, TSITStringFormat format);
 
