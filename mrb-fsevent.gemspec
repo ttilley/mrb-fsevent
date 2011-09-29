@@ -16,7 +16,8 @@ Gem::Specification.new do |s|
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
-  s.require_paths = ["lib"]
+  s.extensions    = ['ext/tstring/rakefile.rb']
+  s.require_paths = ["lib", "ext"]
 
   s.add_development_dependency 'mac_bacon', '>= 1.3'
 end
