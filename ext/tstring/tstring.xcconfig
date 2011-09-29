@@ -1,0 +1,22 @@
+// settings in this file will override those defined in the xcode project
+
+// - deployment -
+INSTALL_MODE_FLAG = u+w,go-w,a+rX
+MACOSX_DEPLOYMENT_TARGET = 10.6
+DSTROOT = ../../../
+INSTALL_PATH = /ext
+SKIP_INSTALL = NO
+
+// - build locations -
+SYMROOT = build
+OBJROOT = $(SYMROOT)
+
+// - architectures -
+ARCHS = $(ARCHS_STANDARD_32_64_BIT)
+SDKROOT = macosx
+
+// - build options -
+GCC_VERSION = com.apple.compilers.llvm.clang.1_0
+
+// macruby requires garbage collection support
+GCC_ENABLE_OBJC_GC = required;

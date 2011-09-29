@@ -1,17 +1,14 @@
 # -*- encoding: utf-8 -*-
 
-begin
-  require 'tnetstring'
-rescue LoadError
-  require "mrb-fsevent/support/tnetstring"
-end
+require 'TSITString'
+TSITString.setDefaultDataFormat(2)
 
 module FSEvent
   module Formatters
     TNETSTRING = lambda do |event_list|
-      return TNetstring.dump(event_list.to_h)
+      return TSITString.dump(event_list.to_h)
     end
   end
-  
+
   EventList::FORMATS[:tnetstring] = Formatters::TNETSTRING
 end

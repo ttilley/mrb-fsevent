@@ -6,7 +6,7 @@ module FSEvent
   module CLI
     OSProductVersion = `sw_vers -productVersion`.strip.split('.').map(&:to_i)
     OSMajorVersion, OSMinorVersion, OSBugFixVersion = OSProductVersion
-    
+
     def parse(args)
       options = {
         :since => KFSEventStreamEventIdSinceNow,
@@ -18,7 +18,7 @@ module FSEvent
         :format => :classic,
         :debug => false
       }
-      
+
       op = OptionParser.new do |opts|
         opts.banner = "Usage: fsevent_watch [options] [paths]"
         opts.separator ""
@@ -69,30 +69,31 @@ module FSEvent
           options[:format] = format
         end
       end
-      
+
       # paths = op.parse!(args)
       # paths = ['.'] if paths.empty?
       # paths.map! { |path| File.expand_path path }
       # paths.map! { |path| path.sub(/^\/private/, '') }
       # options[:paths] = paths
-      
+
       paths = op.parse!(args)
       paths << '.' if paths.empty?
       options[:urls] = paths.map do |path|
-        NSURL.fileURLWithPath(path.stringByStandardizingPath)
+        pathURL = NSURL.fileURLWithPath(path)
+        pathURL.fileReferenceURL.filePathURL
       end
-      
+
       create_flags = [:useCoreFoundationTypes]
       create_flags << :noDefer if options[:no_defer]
       create_flags << :watchRoot if options[:watch_root]
       create_flags << :ignoreSelf if options[:ignore_self]
       create_flags << :fileEvents if options[:file_events]
       options[:create_flags] = create_flags
-      
+
       options
     end
-    
+
     module_function :parse
-    
+
   end
 end
